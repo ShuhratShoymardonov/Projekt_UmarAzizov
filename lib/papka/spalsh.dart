@@ -19,7 +19,7 @@ class _SplashState extends State<Splash> {
 
   void goToNextPage() {
     Future.delayed(
-      Duration(seconds: 3),
+      Duration(seconds: 1),
       () {
         Navigator.pushReplacement(
           context,

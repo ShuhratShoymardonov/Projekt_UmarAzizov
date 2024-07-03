@@ -134,16 +134,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: TextField(
                                     obscureText: chashmak,
                                     decoration: InputDecoration(
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            chashmak = !chashmak;
-                                          });
-                                        },
-                                        icon: chashmak
-                                            ? Icon(Icons.visibility_sharp)
-                                            : Icon(Icons.visibility_off_sharp),
-                                      ),
+                                        suffixIcon: IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              chashmak = !chashmak;
+                                            });
+                                          },
+                                          icon: chashmak
+                                              ? Icon(Icons.visibility_sharp)
+                                              : Icon(Icons.visibility_off_sharp),
+                                        ),
                                       border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(4)),
