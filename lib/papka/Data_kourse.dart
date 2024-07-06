@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umar_azizov/papka/Chashm_page.dart';
+import 'package:umar_azizov/papka/Video_Curs_page.dart';
 
 class DataKourse extends StatelessWidget {
   const DataKourse({super.key});
@@ -207,7 +208,6 @@ class DataKourse extends StatelessWidget {
                       padding: EdgeInsets.all(16),
                       child: Column(
                         children: [
-                          // SizedBox(width: double.infinity),
                           Container(
                             width: 32,
                             height: 4,
@@ -216,7 +216,6 @@ class DataKourse extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                          // SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -301,9 +300,11 @@ class DataKourse extends StatelessWidget {
                                           height: 14,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
-                                            color: Colors.grey,
+                                            color: Colors.white,
+                                            border:
+                                                Border.all(color: Colors.grey),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ],
@@ -328,7 +329,14 @@ class DataKourse extends StatelessWidget {
                                     EdgeInsets.symmetric(
                                         horizontal: 0, vertical: 0)),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => VideoCursPage(),
+                                  ),
+                                );
+                              },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 15),
@@ -366,8 +374,16 @@ class DataKourse extends StatelessWidget {
                                           ),
                                         ),
                                         SizedBox(width: 5),
-                                        Icon(Icons.lock_outline_rounded,
-                                            color: Color(0xff94A3B8)),
+                                        Container(
+                                          width: 14,
+                                          height: 14,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.white,
+                                            border:
+                                                Border.all(color: Colors.grey),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ],

@@ -10,16 +10,45 @@ class Splash extends StatefulWidget {
   State<Splash> createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
+
+    _controller = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+    );
+
+    _animation = Tween<double>(begin: 0.8, end: 1.3).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    )..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          _controller.forward();
+        }
+      });
+
+    _controller.forward();
     goToNextPage();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   void goToNextPage() {
     Future.delayed(
-      Duration(seconds: 1),
+      Duration(seconds: 6),
       () {
         Navigator.pushReplacement(
           context,
@@ -36,7 +65,10 @@ class _SplashState extends State<Splash> {
       home: Scaffold(
         backgroundColor: Color(0xff1780C2),
         body: Center(
-          child: SvgPicture.asset("images/Logo (3).svg"),
+          child: ScaleTransition(
+            scale: _animation,
+            child: SvgPicture.asset("images/Logo (3).svg"),
+          ),
         ),
       ),
     );

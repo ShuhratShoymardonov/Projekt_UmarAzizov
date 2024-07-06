@@ -4,11 +4,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:umar_azizov/papka/Zaregistirvni.dart';
+import 'package:umar_azizov/papka/zabilparol.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:umar_azizov/papka/otpravitnowkod.dart';
 import 'package:umar_azizov/papka/ButtonNavigationBar.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+// import 'package:umar_azizov/papka/Zaregistirvni.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -80,193 +82,256 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           backgroundColor: Colors.white,
-          body: isLoading
-              ? SpinKitFadingCircle(
-                  color: Colors.blue,
-                  size: 100.0,
-                )
-              : SingleChildScrollView(
-                  child: Column(
+          body:
+              //  isLoading
+              //     ? SpinKitFadingCircle(
+              //         color: Colors.blue,
+              //         size: 100.0,
+              //       )
+              // :
+              SingleChildScrollView(
+            child: Column(
+              children: [
+                Image.asset(
+                  "images/image 134.png",
+                ),
+                SizedBox(height: 20),
+                const TabBar(
+                  indicatorColor: Color(0xff1780C2),
+                  labelColor: Color(0xff1780C2),
+                  labelStyle: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
+                  unselectedLabelColor: Color(0xff737373),
+                  unselectedLabelStyle: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
+                  tabs: [
+                    Tab(text: "Телефон"),
+                    Tab(text: "Email"),
+                  ],
+                ),
+                SizedBox(
+                  height: 240,
+                  child: TabBarView(
                     children: [
-                      Image.asset(
-                        "images/image 134.png",
-                      ),
-                      SizedBox(height: 20),
-                      const TabBar(
-                        indicatorColor: Colors.blue,
-                        labelColor: Colors.blue,
-                        labelStyle: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        unselectedLabelColor: Colors.black,
-                        unselectedLabelStyle: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                        tabs: [
-                          Tab(text: "Телефон"),
-                          Tab(text: "Email"),
+                      Column(
+                        children: [
+                          SizedBox(height: 30),
+                          Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xffE2E8F0),
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xffA3A3A3),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  labelText: "Введите номер",
+                                  labelStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xffA3A3A3),
+                                  ),
+                                ),
+                              )),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            child: TextField(
+                              obscureText: chashmak,
+                              decoration: InputDecoration(
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      chashmak = !chashmak;
+                                    });
+                                  },
+                                  icon: chashmak
+                                      ? Icon(
+                                          Icons.visibility_outlined,
+                                          color: Color(0xff737373),
+                                        )
+                                      : Icon(
+                                          Icons.visibility_off_outlined,
+                                          color: Color(0xff737373),
+                                        ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffE2E8F0),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffA3A3A3),
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                labelText: "Пароль",
+                                labelStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xffA3A3A3),
+                                ),
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Otpravitnowkod(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              "Забыли пароль?",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                      SizedBox(
-                        height: 240,
-                        child: TabBarView(
-                          children: [
-                            Column(
-                              children: [
-                                SizedBox(height: 30),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 8),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(4),
-                                      ),
-                                      labelText: "Введите номер",
-                                    ),
+                      Column(
+                        children: [
+                          const SizedBox(height: 30),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            child: TextField(
+                              controller: emailControl,
+                              cursorColor: trueColor,
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffE2E8F0),
+                                    width: 1,
                                   ),
+                                  borderRadius: BorderRadius.circular(4),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 8),
-                                  child: TextField(
-                                    obscureText: chashmak,
-                                    decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              chashmak = !chashmak;
-                                            });
-                                          },
-                                          icon: chashmak
-                                              ? Icon(Icons.visibility_sharp)
-                                              : Icon(Icons.visibility_off_sharp),
-                                        ),
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(4)),
-                                      labelText: "Пароль",
-                                    ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffA3A3A3),
+                                    width: 2,
                                   ),
+                                  borderRadius: BorderRadius.circular(4),
                                 ),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Otpravitnowkod(),
-                                      ),
-                                    );
-                                  },
-                                  child: const Text(
-                                    "Забыли пароль?",
-                                    style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
+                                labelText: "Email",
+                                labelStyle: TextStyle(
+                                  color: trueColor,
                                 ),
-                              ],
+                              ),
                             ),
-                            Column(
-                              children: [
-                                const SizedBox(height: 30),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 8),
-                                  child: TextField(
-                                    controller: emailControl,
-                                    cursorColor: trueColor,
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: trueColor,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(4)),
-                                      labelText: "Email",
-                                      labelStyle: TextStyle(
-                                        color: trueColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 5),
-                                  child: TextField(
-                                    controller: passworldControl,
-                                    cursorColor: trueColor,
-                                    obscureText: chashmak2,
-                                    decoration: InputDecoration(
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            chashmak2 = !chashmak2;
-                                          });
-                                        },
-                                        icon: chashmak2
-                                            ? Icon(Icons.visibility_sharp)
-                                            : Icon(Icons.visibility_off),
-                                      ),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(4),
-                                        borderSide: BorderSide(
-                                          color: trueColor,
-                                          style: BorderStyle.solid,
-                                          width: 1,
-                                        ),
-                                      ),
-                                      labelStyle: TextStyle(
-                                        color: trueColor,
-                                      ),
-                                      labelText: "Пароль",
-                                    ),
-                                  ),
-                                ),
-                                errorText
-                                    ? Container(
-                                        alignment: Alignment.topLeft,
-                                        padding: EdgeInsets.only(left: 20),
-                                        child: Text(
-                                          "Either your email or password is wrong",
-                                          style: TextStyle(
-                                            color: trueColor,
-                                            fontSize: 10,
-                                          ),
-                                        ),
-                                      )
-                                    : Text(""),
-                                TextButton(
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 5),
+                            child: TextField(
+                              controller: passworldControl,
+                              cursorColor: trueColor,
+                              obscureText: chashmak2,
+                              decoration: InputDecoration(
+                                suffixIcon: IconButton(
                                   onPressed: () {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                Otpravitnowkod()));
+                                    setState(() {
+                                      chashmak2 = !chashmak2;
+                                    });
                                   },
-                                  child: const Text(
-                                    "Забыли пароль?",
+                                  icon: chashmak
+                                      ? Icon(
+                                          Icons.visibility_outlined,
+                                          color: Color(0xff737373),
+                                        )
+                                      : Icon(
+                                          Icons.visibility_off_outlined,
+                                          color: Color(0xff737373),
+                                        ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffE2E8F0),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffA3A3A3),
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                labelStyle: TextStyle(
+                                  color: trueColor,
+                                ),
+                                labelText: "Пароль",
+                              ),
+                            ),
+                          ),
+                          errorText
+                              ? Container(
+                                  alignment: Alignment.topLeft,
+                                  padding: EdgeInsets.only(left: 20),
+                                  child: Text(
+                                    "Either your email or password is wrong",
                                     style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
+                                      color: trueColor,
+                                      fontSize: 10,
                                     ),
                                   ),
-                                ),
-                              ],
+                                )
+                              : Text(""),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Otpravitnowkod()));
+                            },
+                            child: const Text(
+                              "Забыли пароль?",
+                              style: TextStyle(
+                                color: Color(0xff1780C2),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      ElevatedButton(
+                    ],
+                  ),
+                ),
+                tocin.isNotEmpty
+                    ? SpinKitFadingCircle(
+                        color: Colors.blue,
+                        size: 50.0,
+                      )
+                    : ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           minimumSize:
                               Size(MediaQuery.of(context).size.width * 0.9, 60),
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color(0xff1780C2),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4),
                           ),
@@ -285,32 +350,29 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Нет аккаунта?"),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          PasswordResetApp()));
-                            },
-                            child: const Text(
-                              "Зарегистрироваться",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ],
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Нет аккаунта?"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Zabil()));
+                      },
+                      child: const Text(
+                        "Зарегистрироваться",
+                        style: TextStyle(
+                          color: Color(0xff1780C2),
+                          fontSize: 16,
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+              ],
+            ),
+          ),
         ),
       ),
     );
