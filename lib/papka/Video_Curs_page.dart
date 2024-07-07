@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:umar_azizov/papka/Chashm_page.dart';
@@ -17,6 +18,21 @@ class _VideoCursPageState extends State<VideoCursPage> {
   int likage = 0, dizage = 0;
 
   bool napisat = true;
+
+  TextEditingController _controller = TextEditingController();
+  List<Map<String, String>> comments = [];
+
+  void addComment(String text) {
+    setState(() {
+      comments.add({
+        "author": "Umar Azizov",
+        "date": "${DateFormat('dd MMM yyyy, HH:mm').format(DateTime.now())}",
+        "content": text,
+      });
+      _controller.clear();
+      napisat = !napisat;
+    });
+  }
 
   @override
   void initState() {
@@ -132,13 +148,6 @@ class _VideoCursPageState extends State<VideoCursPage> {
                                     SizedBox(width: 5),
                                     Container(
                                       alignment: Alignment.center,
-                                      // width: 14,
-                                      // height: 14,
-                                      // decoration: BoxDecoration(
-                                      //   shape: BoxShape.circle,
-                                      //   color: Colors.white,
-                                      //   border: Border.all(color: Colors.grey),
-                                      // ),
                                       child: Icon(
                                         Icons.check_circle,
                                         size: 16,
@@ -558,7 +567,7 @@ class _VideoCursPageState extends State<VideoCursPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Комментарии (2)",
+                                  "Комментарии (${comments.length})",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 16,
@@ -590,84 +599,80 @@ class _VideoCursPageState extends State<VideoCursPage> {
                               ],
                             ),
                             SizedBox(height: 20),
-                            Container(
-                              child: Expanded(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                              "images/UmarAzizov.png"),
-                                        ),
-                                        SizedBox(width: 8),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                            Expanded(
+                              child: comments.isNotEmpty
+                                  ? ListView.builder(
+                                      itemCount: comments.length,
+                                      itemBuilder: (context, index) {
+                                        final comment = comments[index];
+                                        return Column(
                                           children: [
-                                            Text(
-                                              "Umar Azizov",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CircleAvatar(
+                                                  backgroundImage: AssetImage(
+                                                      "images/UmarAzizov.png"),
+                                                ),
+                                                SizedBox(width: 8),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      comment["author"]!,
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    Text(
+                                                      comment["date"]!,
+                                                      style: TextStyle(
+                                                          color: Colors.grey),
+                                                    ),
+                                                    SizedBox(height: 7),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                            Text(
-                                              "23 янв 2024",
-                                              style:
-                                                  TextStyle(color: Colors.grey),
+                                            SizedBox(height: 7),
+                                            Container(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                comment["content"]!,
+                                              ),
                                             ),
-                                            SizedBox(height: 4),
+                                            SizedBox(height: 30),
+                                            Divider(
+                                              color: Color.fromARGB(
+                                                  255, 230, 229, 229),
+                                              height: 1,
+                                            ),
+                                            SizedBox(height: 20),
                                           ],
-                                        ),
-                                      ],
-                                    ),
-                                    Text(
-                                      "Видео классное многое стало понятно, прям чувствую что поумнел, продолжу изучать остальные уроки",
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 5),
-                              child: Expanded(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                              "images/UmarAzizov.png"),
-                                        ),
-                                        SizedBox(width: 8),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "Umar Azizov",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
+                                        );
+                                      },
+                                    )
+                                  : Center(
+                                      child: Column(
+                                        children: [
+                                          Icon(
+                                            Icons.forum_outlined,
+                                            color: Colors.grey,
+                                            size: 70,
+                                          ),
+                                          SizedBox(height: 10),
+                                          Text(
+                                            "Пока комментариев нет!",
+                                            style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 16,
                                             ),
-                                            Text(
-                                              "23 янв 2024",
-                                              style:
-                                                  TextStyle(color: Colors.grey),
-                                            ),
-                                            SizedBox(height: 4),
-                                          ],
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    Text(
-                                      "Супер, просто невероятно!",
-                                    ),
-                                  ],
-                                ),
-                              ),
                             ),
                           ],
                         )
@@ -685,6 +690,7 @@ class _VideoCursPageState extends State<VideoCursPage> {
                             ),
                             SizedBox(height: 20),
                             TextField(
+                              controller: _controller,
                               maxLines: 5,
                               minLines: 3,
                               decoration: InputDecoration(
@@ -713,9 +719,7 @@ class _VideoCursPageState extends State<VideoCursPage> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    setState(() {
-                                      napisat = !napisat;
-                                    });
+                                    addComment(_controller.text);
                                   },
                                   child: Container(
                                     alignment: Alignment.center,
@@ -763,7 +767,7 @@ class _VideoCursPageState extends State<VideoCursPage> {
                           ],
                         ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -773,17 +777,22 @@ class _VideoCursPageState extends State<VideoCursPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: 48,
-              height: 48,
-              decoration: BoxDecoration(
-                border: Border.all(
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color(0xff1780C2),
+                  ),
+                ),
+                child: Icon(
+                  Icons.chevron_left_sharp,
                   color: Color(0xff1780C2),
                 ),
-              ),
-              child: Icon(
-                Icons.chevron_left_sharp,
-                color: Color(0xff1780C2),
               ),
             ),
             Container(

@@ -332,7 +332,7 @@ class _ProfilState extends State<Profil> {
                                 minimumSize: Size(
                                     MediaQuery.of(context).size.width * 0.95,
                                     60),
-                                backgroundColor: Color(0xffE2E8F0),
+                                backgroundColor: Color(0xffF3F4F6),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(8),
@@ -521,7 +521,6 @@ class _ProfilState extends State<Profil> {
                               ),
                             ),
                           ),
-                          // SizedBox(height: 24),
                           Container(
                             width: 328,
                             height: 70,

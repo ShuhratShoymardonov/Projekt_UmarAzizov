@@ -4,10 +4,12 @@ import 'package:umar_azizov/papka/home.dart';
 class Drawer_Container extends StatelessWidget {
   final String name;
   final IconData icon;
+  final Color textColor;
   const Drawer_Container({
     super.key,
     required this.name,
     required this.icon,
+    required this.textColor,
   });
 
   @override
