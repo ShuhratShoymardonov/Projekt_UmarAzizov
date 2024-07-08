@@ -131,19 +131,8 @@ class DataKourse extends StatelessWidget {
                   Positioned(
                     top: 65,
                     left: 10,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.transparent),
-                        shadowColor: MaterialStateProperty.all<Color>(
-                            Colors.transparent),
-                        elevation: MaterialStateProperty.all<double>(0),
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 0)),
-                      ),
-                      onPressed: () {},
+                    child: InkWell(
+                      onTap: () {},
                       child: Container(
                         alignment: Alignment.center,
                         width: 128,
@@ -195,9 +184,11 @@ class DataKourse extends StatelessWidget {
                 ),
                 onPressed: () {
                   showModalBottomSheet(
+                    isScrollControlled: true,
                     backgroundColor: Colors.white,
                     context: context,
                     builder: (context) => Container(
+                      height: 420,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
@@ -235,22 +226,8 @@ class DataKourse extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5.0),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.transparent),
-                                shadowColor: MaterialStateProperty.all<Color>(
-                                    Colors.transparent),
-                                elevation: MaterialStateProperty.all<double>(0),
-                                foregroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.black),
-                                padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 0, vertical: 0)),
-                              ),
-                              onPressed: () {
+                            child: InkWell(
+                              onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -314,22 +291,8 @@ class DataKourse extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5.0),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.transparent),
-                                shadowColor: MaterialStateProperty.all<Color>(
-                                    Colors.transparent),
-                                elevation: MaterialStateProperty.all<double>(0),
-                                foregroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.black),
-                                padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 0, vertical: 0)),
-                              ),
-                              onPressed: () {
+                            child: InkWell(
+                              onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -393,22 +356,8 @@ class DataKourse extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5.0),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.transparent),
-                                shadowColor: MaterialStateProperty.all<Color>(
-                                    Colors.transparent),
-                                elevation: MaterialStateProperty.all<double>(0),
-                                foregroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.black),
-                                padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 0, vertical: 0)),
-                              ),
-                              onPressed: () {},
+                            child: InkWell(
+                              onTap: () {},
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 15),
@@ -457,22 +406,8 @@ class DataKourse extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5.0),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.transparent),
-                                shadowColor: MaterialStateProperty.all<Color>(
-                                    Colors.transparent),
-                                elevation: MaterialStateProperty.all<double>(0),
-                                foregroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.black),
-                                padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 0, vertical: 0)),
-                              ),
-                              onPressed: () {},
+                            child: InkWell(
+                              onTap: () {},
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 15),
@@ -521,22 +456,8 @@ class DataKourse extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5.0),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.transparent),
-                                shadowColor: MaterialStateProperty.all<Color>(
-                                    Colors.transparent),
-                                elevation: MaterialStateProperty.all<double>(0),
-                                foregroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.black),
-                                padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.symmetric(
-                                        horizontal: 0, vertical: 0)),
-                              ),
-                              onPressed: () {},
+                            child: InkWell(
+                              onTap: () {},
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 15),

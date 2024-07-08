@@ -44,11 +44,11 @@ class Konsuk extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        bottom: -100,
+                        bottom: -70,
                         left: MediaQuery.of(context).size.width / 4,
                         child: Container(
-                          width: 150,
-                          height: 150,
+                          width: 120,
+                          height: 120,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -64,7 +64,7 @@ class Konsuk extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 110),
+              SizedBox(height: 70),
               Image.asset("images/Logo (3).png"),
               Text(
                 "Руководитель клиники EuroMed в Душанбе",
@@ -76,10 +76,10 @@ class Konsuk extends StatelessWidget {
               SizedBox(height: 30),
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: 110,
+                height: 84,
                 decoration: BoxDecoration(
                   color: Color(0xffF4F4F5),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Center(
                   child: Column(
@@ -90,15 +90,15 @@ class Konsuk extends StatelessWidget {
                         style: TextStyle(
                           color: Color(0xff525252),
                           fontWeight: FontWeight.w400,
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       Text(
                         "консультаций: 3",
                         style: TextStyle(
                           color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 24,
                           fontFamily: "Helvetica ",
                         ),
                       )
@@ -106,18 +106,29 @@ class Konsuk extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 70),
+              SizedBox(height: 150),
               Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: 100,
+                width: MediaQuery.of(context).size.width * 0.95,
+                height: 72,
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(36, 17, 24, 39),
+                      blurRadius: 10,
+                      offset: Offset(4, 4),
+                      spreadRadius: 2,
+                    ),
+                  ],
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Цена",
@@ -138,8 +149,8 @@ class Konsuk extends StatelessWidget {
                         ),
                       ],
                     ),
-                    TextButton(
-                      onPressed: () {
+                    InkWell(
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(

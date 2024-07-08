@@ -168,7 +168,7 @@ class Oplata extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 100),
+          SizedBox(height: 80),
           Container(
             width: 328,
             height: 52,

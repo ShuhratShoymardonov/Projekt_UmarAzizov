@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:umar_azizov/papka/MoyKurs.dart';
+import 'package:umar_azizov/papka/kurs.dart';
 
 class HomeTextMoykurs extends StatelessWidget {
   const HomeTextMoykurs({
@@ -25,7 +25,7 @@ class HomeTextMoykurs extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MoyKurs(),
+                  builder: (context) => Kurs(),
                 ),
               );
             },

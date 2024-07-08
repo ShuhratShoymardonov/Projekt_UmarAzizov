@@ -12,25 +12,75 @@ class Kurs extends StatefulWidget {
 }
 
 class _KursState extends State<Kurs> {
-  List user = [];
+  List user = [
+    {
+      'id': '1',
+      'title': 'Анатомия',
+      'lessons': '20 ',
+      'duration': '34 ч',
+      'image': "images/Anatomy.png",
+    },
+    {
+      'id': '2',
+      'title': 'Шиши нав',
+      'lessons': '14 ',
+      'duration': '27 ч',
+      'image': "images/Breath 1.png",
+    },
+    {
+      'id': '3',
+      'title': 'Шиш',
+      'lessons': '23 ',
+      'duration': '39 ч',
+      'image': "images/image 98.png",
+    },
+    {
+      'id': '4',
+      'title': 'Сутунмухра',
+      'lessons': '13 ',
+      'duration': '21 ч',
+      'image': "images/Spine (1).png",
+    },
+    {
+      'id': '5',
+      'title': 'Анатомия',
+      'lessons': '20 ',
+      'duration': '34 ч',
+      'image': "images/Anatomy.png",
+    },
+    {
+      'id': '6',
+      'title': 'Шиши нав',
+      'lessons': '14 ',
+      'duration': '27 ч',
+      'image': "images/Breath 1.png",
+    },
+    {
+      'id': '7',
+      'title': 'Шиш',
+      'lessons': '23 ',
+      'duration': '39 ч',
+      'image': "images/Breath 1.png",
+    },
+  ];
 
-  @override
-  void initState() {
-    super.initState();
-    getAllUser();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getAllUser();
+  // }
 
-  Future getAllUser() async {
-    var get = await http.get(
-      Uri.parse("https://reqres.in/api/users?page=1"),
-    );
-    if (get.statusCode == 200) {
-      var res = json.decode(get.body);
-      setState(() {
-        user = res['data'];
-      });
-    }
-  }
+  // Future getAllUser() async {
+  //   var get = await http.get(
+  //     Uri.parse("https://reqres.in/api/users?page=1"),
+  //   );
+  //   if (get.statusCode == 200) {
+  //     var res = json.decode(get.body);
+  //     setState(() {
+  //       user = res['data'];
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +122,7 @@ class _KursState extends State<Kurs> {
                 ),
               )
             : Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(8.0),
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -83,7 +133,7 @@ class _KursState extends State<Kurs> {
                   itemCount: user.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: EdgeInsets.all(1),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -103,8 +153,8 @@ class _KursState extends State<Kurs> {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              "${user[index]['avatar']}",
+                            child: Image.asset(
+                              "${user[index]['image']}",
                               fit: BoxFit.cover,
                               width: double.infinity,
                               height: 140,
@@ -114,7 +164,7 @@ class _KursState extends State<Kurs> {
                           Padding(
                             padding: const EdgeInsets.only(left: 5, top: 5),
                             child: Text(
-                              "${user[index]['first_name']} ${user[index]['last_name']}",
+                              "${user[index]['title']} ",
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
@@ -135,7 +185,7 @@ class _KursState extends State<Kurs> {
                                     color: Color(0xff1780C2),
                                   ),
                                   Text(
-                                    " 20 уроков ",
+                                    " ${user[index]["lessons"]} уроков ",
                                     style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w500,
@@ -160,7 +210,7 @@ class _KursState extends State<Kurs> {
                                     ),
                                   ),
                                   Text(
-                                    " 16 ч ",
+                                    " ${user[index]["duration"]} ",
                                     style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w500,

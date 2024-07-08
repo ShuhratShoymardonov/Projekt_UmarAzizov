@@ -61,349 +61,10 @@ class _VideoCursPageState extends State<VideoCursPage> {
           child: IconButton(
             onPressed: () {
               showModalBottomSheet(
+                isScrollControlled: true,
                 backgroundColor: Colors.white,
                 context: context,
-                builder: (context) => Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                  ),
-                  padding: EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 32,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Сар",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(Icons.close)),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ChashmPage(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 15),
-                            width: 320,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: Color(0xffF3F4F6),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.view_headline),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      "Чашм",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "24:05",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff64748B),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      child: Icon(
-                                        Icons.check_circle,
-                                        size: 16,
-                                        color: Color(0xff1780C2),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => VideoCursPage(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 15),
-                            width: 320,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: Color(0xffF3F4F6),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.play_circle_outline),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      "Майна",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "24:05",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff64748B),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      // width: 14,
-                                      // height: 14,
-                                      // decoration: BoxDecoration(
-                                      //   shape: BoxShape.circle,
-                                      //   color: Colors.white,
-                                      //   border: Border.all(color: Colors.grey),
-                                      // ),
-                                      child: Icon(
-                                        Icons.check_circle,
-                                        size: 16,
-                                        color: Color(0xff1780C2),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 15),
-                            width: 320,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: Color(0xffF3F4F6),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.view_headline),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      "Гуш",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "24:05",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff64748B),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      width: 14,
-                                      height: 14,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        border: Border.all(color: Colors.grey),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 15),
-                            width: 320,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: Color(0xffF3F4F6),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.play_circle_outline),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      "Гул",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "24:05",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff64748B),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      width: 14,
-                                      height: 14,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        border: Border.all(color: Colors.grey),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 15),
-                            width: 320,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: Color(0xffF3F4F6),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.play_circle_outline),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      "Бини",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "24:05",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff64748B),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      width: 14,
-                                      height: 14,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        border: Border.all(color: Colors.grey),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                builder: (context) => ShowModlBotton(),
               );
             },
             icon: Icon(
@@ -615,7 +276,7 @@ class _VideoCursPageState extends State<VideoCursPage> {
                                                   backgroundImage: AssetImage(
                                                       "images/UmarAzizov.png"),
                                                 ),
-                                                SizedBox(width: 8),
+                                                SizedBox(width: 5),
                                                 Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
@@ -795,32 +456,388 @@ class _VideoCursPageState extends State<VideoCursPage> {
                 ),
               ),
             ),
-            Container(
-              width: 123,
-              height: 48,
-              decoration: BoxDecoration(
-                color: Color(0xff1780C2),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Дальше",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+            InkWell(
+              onTap: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) => ShowModlBotton(),
+                );
+              },
+              child: Container(
+                width: 123,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: Color(0xff1780C2),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Дальше",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  Icon(
-                    Icons.chevron_right,
-                    color: Color(0xffffffff),
-                  ),
-                ],
+                    Icon(
+                      Icons.chevron_right,
+                      color: Color(0xffffffff),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ShowModlBotton extends StatelessWidget {
+  const ShowModlBotton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 420,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      padding: EdgeInsets.all(16),
+      child: Column(
+        children: [
+          Container(
+            width: 32,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Сар",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.close)),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChashmPage(),
+                  ),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                width: 320,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Color(0xffF3F4F6),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.view_headline),
+                        SizedBox(width: 5),
+                        Text(
+                          "Чашм",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "24:05",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff64748B),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        Container(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.check_circle,
+                            size: 16,
+                            color: Color(0xff1780C2),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VideoCursPage(),
+                  ),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                width: 320,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Color(0xffF3F4F6),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.play_circle_outline),
+                        SizedBox(width: 5),
+                        Text(
+                          "Майна",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "24:05",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff64748B),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        Container(
+                          alignment: Alignment.center,
+                          // width: 14,
+                          // height: 14,
+                          // decoration: BoxDecoration(
+                          //   shape: BoxShape.circle,
+                          //   color: Colors.white,
+                          //   border: Border.all(color: Colors.grey),
+                          // ),
+                          child: Icon(
+                            Icons.check_circle,
+                            size: 16,
+                            color: Color(0xff1780C2),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                width: 320,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Color(0xffF3F4F6),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.view_headline),
+                        SizedBox(width: 5),
+                        Text(
+                          "Гуш",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "24:05",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff64748B),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        Container(
+                          alignment: Alignment.center,
+                          width: 14,
+                          height: 14,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                            border: Border.all(color: Colors.grey),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                width: 320,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Color(0xffF3F4F6),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.play_circle_outline),
+                        SizedBox(width: 5),
+                        Text(
+                          "Гул",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "24:05",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff64748B),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        Container(
+                          alignment: Alignment.center,
+                          width: 14,
+                          height: 14,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                            border: Border.all(color: Colors.grey),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                width: 320,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: Color(0xffF3F4F6),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.play_circle_outline),
+                        SizedBox(width: 5),
+                        Text(
+                          "Бини",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "24:05",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff64748B),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        Container(
+                          alignment: Alignment.center,
+                          width: 14,
+                          height: 14,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                            border: Border.all(color: Colors.grey),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
