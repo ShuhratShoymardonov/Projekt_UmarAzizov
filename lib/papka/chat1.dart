@@ -11,7 +11,7 @@ class Chat1 extends StatefulWidget {
 class _Chat1State extends State<Chat1> {
   final TextEditingController _controller = TextEditingController();
   final List<String> _messages = [];
-  bool _isWriting = true;
+  // bool _isWriting = true;
 
   void _sendMessage() {
     if (_controller.text.isNotEmpty) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:umar_azizov/papka/loginPhon1.dart';
 import 'package:umar_azizov/papka/otpravitnowkod.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 class Zabil extends StatefulWidget {
   @override

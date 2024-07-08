@@ -1,8 +1,8 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:umar_azizov/papka/Uvedomilni_Page.dart';
+// import 'dart:convert';
+// import 'package:http/http.dart' as http;
 
 class Kurs extends StatefulWidget {
   const Kurs({super.key});

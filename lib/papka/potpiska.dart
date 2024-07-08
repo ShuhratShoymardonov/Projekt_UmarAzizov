@@ -1,7 +1,6 @@
 import 'potpiska_continer_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:umar_azizov/papka/oplata.dart';
 
 class Potpiska extends StatelessWidget {
   Potpiska({super.key});
