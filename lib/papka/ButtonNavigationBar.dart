@@ -20,7 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _selectedIndex = index;
     });
   }
-l
   List<Widget> sahifaho = [
     Home(),
     Potpiska(),

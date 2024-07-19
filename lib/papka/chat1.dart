@@ -21,7 +21,6 @@ class _Chat1State extends State<Chat1> {
       });
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -97,6 +97,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 20),
                 const TabBar(
+                  dividerColor: Colors.transparent,
+                  indicatorSize: TabBarIndicatorSize.tab,
                   indicatorColor: Color(0xff1780C2),
                   labelColor: Color(0xff1780C2),
                   labelStyle: TextStyle(
